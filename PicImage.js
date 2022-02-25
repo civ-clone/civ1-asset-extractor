@@ -115,8 +115,8 @@ class PicImage extends BinFile_1.default {
         const oldImageData = this.imageData;
         this.imageData = [];
         for (let i = 0; i < oldImageData.length; i++) {
-            this.imageData.push(lowerNibble_1.default(oldImageData[i]));
-            this.imageData.push(upperNibble_1.default(oldImageData[i]));
+            this.imageData.push((0, lowerNibble_1.default)(oldImageData[i]));
+            this.imageData.push((0, upperNibble_1.default)(oldImageData[i]));
         }
         //set the palette to the hard-coded 16-color palette
         this.palette = this.palette16;

@@ -42,7 +42,7 @@ const extractData: ExtractData = JSON.parse(
   const canvas = new Canvas(320, 200),
     image = new PicImage();
 
-  image.open(`./${file}`, (data) => {
+  image.open(`./${file}`, () => {
     image.draw(canvas.getContext('2d') as CanvasRenderingContext2D);
 
     Object.entries(extractData.files[file]).forEach(
@@ -63,7 +63,7 @@ const extractData: ExtractData = JSON.parse(
 
             context.clearRect(0, 0, object.width, object.height);
             context.drawImage(
-              (canvas as unknown) as HTMLCanvasElement,
+              canvas as unknown as HTMLCanvasElement,
               object.x,
               object.y,
               object.width,

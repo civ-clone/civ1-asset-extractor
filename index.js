@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const canvas_1 = require("canvas");
 const PicImage_1 = require("./PicImage");
-const extractData = JSON.parse(fs_1.readFileSync('./extract-data.json').toString());
+const extractData = JSON.parse((0, fs_1.readFileSync)('./extract-data.json').toString());
 ['TER257.PIC', 'SP257.PIC'].forEach((file) => {
     const canvas = new canvas_1.Canvas(320, 200), image = new PicImage_1.default();
-    image.open(`./${file}`, (data) => {
+    image.open(`./${file}`, () => {
         image.draw(canvas.getContext('2d'));
         Object.entries(extractData.files[file]).forEach(([path, definitions]) => {
             definitions.forEach((definition) => {
@@ -29,22 +29,22 @@ const extractData = JSON.parse(fs_1.readFileSync('./extract-data.json').toString
                         }
                     }
                     try {
-                        fs_1.accessSync('./assets/');
+                        (0, fs_1.accessSync)('./assets/');
                     }
                     catch (e) {
-                        fs_1.mkdirSync('./assets/');
+                        (0, fs_1.mkdirSync)('./assets/');
                     }
                     try {
-                        fs_1.accessSync(dirname);
+                        (0, fs_1.accessSync)(dirname);
                     }
                     catch (e) {
-                        fs_1.mkdirSync(dirname);
+                        (0, fs_1.mkdirSync)(dirname);
                     }
                     const buffer = Buffer.from(contentCanvas
                         .toDataURL('image/png')
                         .replace(/^data:image\/png;base64,/, ''), 'base64');
                     console.log(`Writing ${filename}...`);
-                    fs_1.writeFileSync(filename, buffer);
+                    (0, fs_1.writeFileSync)(filename, buffer);
                 });
             });
         });

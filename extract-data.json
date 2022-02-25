@@ -82,10 +82,10 @@
       ],
       "city/food": [
         {
-          "y": 32,
-          "x": 128,
-          "height": 8,
-          "width": 8,
+          "y": 33,
+          "x": 129,
+          "height": 7,
+          "width": 7,
           "contents": [
             {
               "name": ""
@@ -95,10 +95,10 @@
       ],
       "city/production": [
         {
-          "y": 32,
-          "x": 136,
-          "height": 8,
-          "width": 8,
+          "y": 33,
+          "x": 137,
+          "height": 7,
+          "width": 7,
           "contents": [
             {
               "name": ""
@@ -108,10 +108,10 @@
       ],
       "city/trade": [
         {
-          "y": 32,
-          "x": 144,
-          "height": 8,
-          "width": 8,
+          "y": 33,
+          "x": 145,
+          "height": 7,
+          "width": 7,
           "contents": [
             {
               "name": ""
@@ -121,10 +121,10 @@
       ],
       "city/gold": [
         {
-          "y": 32,
-          "x": 152,
-          "height": 8,
-          "width": 8,
+          "y": 33,
+          "x": 153,
+          "height": 7,
+          "width": 7,
           "contents": [
             {
               "name": ""
@@ -134,10 +134,10 @@
       ],
       "city/bulb": [
         {
-          "y": 40,
-          "x": 128,
-          "height": 8,
-          "width": 8,
+          "y": 41,
+          "x": 129,
+          "height": 7,
+          "width": 7,
           "contents": [
             {
               "name": ""
@@ -147,10 +147,10 @@
       ],
       "city/sad": [
         {
-          "y": 40,
-          "x": 136,
-          "height": 8,
-          "width": 8,
+          "y": 41,
+          "x": 137,
+          "height": 7,
+          "width": 7,
           "contents": [
             {
               "name": ""
@@ -160,10 +160,10 @@
       ],
       "city/luxury": [
         {
-          "y": 40,
-          "x": 144,
-          "height": 8,
-          "width": 8,
+          "y": 41,
+          "x": 145,
+          "height": 7,
+          "width": 7,
           "contents": [
             {
               "name": ""
@@ -173,10 +173,10 @@
       ],
       "terrain/": [
         {
-          "y": 40,
-          "x": 152,
-          "height": 8,
-          "width": 8,
+          "y": 41,
+          "x": 153,
+          "height": 7,
+          "width": 7,
           "contents": [
             {
               "name": "shield"
@@ -353,39 +353,41 @@
       ],
       "units/combat": [
         {
-          "y": 96,
+          "y": 97,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "_1",
-              "x": 0
+              "x": 1
             },
             {
               "name": "_2",
-              "x": 16
+              "x": 17
             },
             {
               "name": "_3",
-              "x": 32
+              "x": 33
             },
             {
               "name": "_4",
-              "x": 48
+              "x": 49
             },
             {
               "name": "_5",
-              "x": 64
+              "x": 65
             },
             {
               "name": "_6",
-              "x": 80
+              "x": 81
             },
             {
               "name": "_7",
-              "x": 96
+              "x": 97
             },
             {
               "name": "_8",
-              "x": 112
+              "x": 113
             }
           ]
         }
@@ -431,154 +433,180 @@
       ],
       "terrain/oasis": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 0
+              "x": 1
             }
           ]
         }
       ],
       "terrain/horse": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 16
+              "x": 17
             }
           ]
         }
       ],
       "terrain/doe": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 48
+              "x": 49
             }
           ]
         }
       ],
       "terrain/coal": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 64
+              "x": 65
             }
           ]
         }
       ],
       "terrain/gold": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 80
+              "x": 81
             }
           ]
         }
       ],
       "terrain/game": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 96
+              "x": 97
             }
           ]
         }
       ],
       "terrain/seal": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 112
+              "x": 113
             }
           ]
         }
       ],
       "terrain/oil": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 128
+              "x": 129
             }
           ]
         }
       ],
       "terrain/gems": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 144
+              "x": 145
             }
           ]
         }
       ],
       "terrain/fish": [
         {
-          "y": 112,
+          "y": 113,
+          "width": 15,
+          "height": 15,
           "contents": [
             {
               "name": "",
-              "x": 160
+              "x": 161
             }
           ]
         }
       ],
       "map/city": [
         {
-          "y": 112,
+          "y": 113,
           "contents": [
             {
               "name": "",
-              "x": 192
+              "x": 193
             }
           ]
         }
       ],
       "map/fortify": [
         {
-          "y": 112,
+          "width": 15,
+          "height": 15,
+          "y": 113,
           "contents": [
             {
               "name": "",
-              "x": 208
+              "x": 209
             }
           ]
         }
       ],
       "map/fort": [
         {
-          "y": 112,
+          "width": 15,
+          "height": 15,
+          "y": 113,
           "contents": [
             {
               "name": "",
-              "x": 224
+              "x": 225
             }
           ]
         }
       ],
       "map/hut": [
         {
-          "y": 112,
+          "y": 113,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "",
-              "x": 240
+              "x": 241
             }
           ]
         }
@@ -653,124 +681,126 @@
       ],
       "units/": [
         {
-          "y": 160,
+          "y": 161,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "settlers",
-              "x": 0
+              "x": 1
             },
             {
               "name": "warrior",
-              "x": 16
+              "x": 17
             },
             {
               "name": "spearman",
-              "x": 32
+              "x": 33
             },
             {
               "name": "swordman",
-              "x": 48
+              "x": 49
             },
             {
               "name": "musketman",
-              "x": 64
+              "x": 65
             },
             {
               "name": "rifleman",
-              "x": 80
+              "x": 81
             },
             {
               "name": "horseman",
-              "x": 96
+              "x": 97
             },
             {
-              "name": "knights",
-              "x": 112
+              "name": "knight",
+              "x": 113
             },
             {
               "name": "catapult",
-              "x": 128
+              "x": 129
             },
             {
               "name": "cannon",
-              "x": 144
+              "x": 145
             },
             {
               "name": "chariot",
-              "x": 160
+              "x": 161
             },
             {
               "name": "armor",
-              "x": 176
+              "x": 177
             },
             {
               "name": "mechanizedinfantry",
-              "x": 192
+              "x": 193
             },
             {
               "name": "artillery",
-              "x": 208
+              "x": 209
             },
             {
               "name": "fighter",
-              "x": 224
+              "x": 225
             },
             {
               "name": "bomber",
-              "x": 240
+              "x": 241
             },
             {
               "name": "trireme",
-              "x": 256
+              "x": 257
             },
             {
               "name": "sail",
-              "x": 272
+              "x": 273
             },
             {
               "name": "frigate",
-              "x": 288
+              "x": 289
             },
             {
               "name": "ironclad",
-              "x": 304
+              "x": 305
             }
           ]
         },
         {
-          "y": 176,
+          "y": 177,
           "contents": [
             {
               "name": "cruiser",
-              "x": 0
+              "x": 1
             },
             {
               "name": "battleship",
-              "x": 16
+              "x": 17
             },
             {
               "name": "submarine",
-              "x": 32
+              "x": 33
             },
             {
               "name": "carrier",
-              "x": 48
+              "x": 49
             },
             {
               "name": "transport",
-              "x": 64
+              "x": 65
             },
             {
               "name": "nuclear",
-              "x": 80
+              "x": 81
             },
             {
               "name": "diplomat",
-              "x": 96
+              "x": 97
             },
             {
               "name": "caravan",
-              "x": 112
+              "x": 113
             }
           ]
         }
@@ -1532,7 +1562,7 @@
           "contents": [
             {
               "name": "",
-              "x": 228
+              "x": 240
             }
           ]
         },

@@ -1,6 +1,6 @@
 {
   "name": "@civ-clone/civ1-asset-extractor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "repository": "git@github.com:civ-clone/civ1-asset-extractor.git",
   "keywords": [
@@ -17,11 +17,12 @@
     "ts:compile": "tsc --build tsconfig.json"
   },
   "devDependencies": {
-    "prettier": "^2.1.2",
-    "ts-mocha": "^7.0.0",
-    "typescript": "^4.0.3"
+    "@types/node": "^17.0.0",
+    "prettier": "^2.0.0",
+    "ts-mocha": "^9.0.0",
+    "typescript": "^4.0.0"
   },
   "dependencies": {
-    "canvas": "^2.7.0"
+    "canvas": "^2.0.0"
   }
 }
