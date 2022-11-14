@@ -9,8 +9,7 @@ export class LZWDictionary {
 
     for (let i = 0; i < this.dicSize; i++) {
       if (i < 256) {
-        this.dicTable[i] = [];
-        (this.dicTable[i] as number[])[0] = i;
+        this.dicTable[i] = [i];
       } else {
         this.dicTable[i] = null;
       }

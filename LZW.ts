@@ -5,13 +5,13 @@ export class LZW {
   static parseByteStreamToIndexes(
     binFile: { getUByte: () => number },
     remainingCodedBytes: number,
-    ubyte_mode: number
+    uByteMode: number
   ) {
     const parsedIndexes = []; //ArrayList<Integer> parsedIndexes = new ArrayList<Integer>();
 
     let usableBits = 0,
       usableBitCount = 0,
-      indicatorLength = 1 /* to increment with ++; rule is that 8+indicatorLength must be <= ubyte_mode, otherwise reset */,
+      indicatorLength = 1 /* to increment with ++; rule is that 8+indicatorLength must be <= uByteMode, otherwise reset */,
       indicatorFlag = 0x001 /* to increment with <<=1 followed by |= 1 */,
       nextThreshold = 0x0100 /*256*/ /* to increment with <<=1, or *=2 */,
       decodedCounter = 0,
@@ -38,12 +38,12 @@ export class LZW {
         if (decodedCounter == nextThreshold) {
           //If threshold is reached...
           decodedCounter = 0;
-          indicatorLength += 1; // to increment with ++; rule is that 8+indicatorLength must be <= ubyte_mode, otherwise reset
+          indicatorLength += 1; // to increment with ++; rule is that 8+indicatorLength must be <= uByteMode, otherwise reset
           indicatorFlag <<= 1;
           indicatorFlag |= 1; // left-shift bitmask and add another 1 (e.g. 0001 > 0011 > 0111)
           nextThreshold <<= 1; //Double the next threshold
 
-          if (8 + indicatorLength > ubyte_mode) {
+          if (8 + indicatorLength > uByteMode) {
             decodedCounter = 0;
             indicatorLength = 1;
             indicatorFlag = 0x001;

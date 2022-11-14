@@ -1,38 +1,11 @@
-import * as fs from 'fs';
-
 export class BinFile {
   private blob: string | null = null;
   private ptr: number = -1;
 
-  open(file: string, callback: (...args: any[]) => any) {
-    if (!file) {
-      console.warn("Couldn't find the file!");
-      return;
-    }
-
-    fs.readFile(
-      file,
-      {
-        encoding: 'binary',
-      },
-      (error, content) => {
-        if (error) {
-          if (error.code === 'ENOENT') {
-            console.error('Please copy TER257.PIC to the current directory.');
-
-            return;
-          }
-
-          console.error(error);
-
-          return;
-        }
-
-        this.blob = content;
-        this.ptr = 0;
-        this.decode(callback);
-      }
-    );
+  fromString(content: string, callback: (...args: any[]) => any) {
+    this.blob = content;
+    this.ptr = 0;
+    this.decode(callback);
   }
 
   getUByte() {
@@ -40,8 +13,8 @@ export class BinFile {
   }
 
   getUShort() {
-    const b1 = this.getUByte();
-    const b2 = this.getUByte();
+    const b1 = this.getUByte(),
+      b2 = this.getUByte();
 
     return (b2 << 8) + b1;
   }

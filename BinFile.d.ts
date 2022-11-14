@@ -1,7 +1,7 @@
 export declare class BinFile {
   private blob;
   private ptr;
-  open(file: string, callback: (...args: any[]) => any): void;
+  fromString(content: string, callback: (...args: any[]) => any): void;
   getUByte(): number;
   getUShort(): number;
   getShort(): number;

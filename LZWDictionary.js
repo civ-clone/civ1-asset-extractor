@@ -8,8 +8,7 @@ class LZWDictionary {
         this.dicSize = 0x1 << maxBits;
         for (let i = 0; i < this.dicSize; i++) {
             if (i < 256) {
-                this.dicTable[i] = [];
-                this.dicTable[i][0] = i;
+                this.dicTable[i] = [i];
             }
             else {
                 this.dicTable[i] = null;

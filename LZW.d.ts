@@ -4,7 +4,7 @@ export declare class LZW {
       getUByte: () => number;
     },
     remainingCodedBytes: number,
-    ubyte_mode: number
+    uByteMode: number
   ): number[];
   static decode(inputData: any, dicIndexMaxBits: number): number[];
   static RLEDecode(byteArr: number[]): number[];

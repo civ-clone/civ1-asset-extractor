@@ -1,53 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
+const extractSprites_1 = require("./extractSprites");
 const canvas_1 = require("canvas");
-const PicImage_1 = require("./PicImage");
+const fs = require("fs");
 const extractData = JSON.parse((0, fs_1.readFileSync)('./extract-data.json').toString());
 ['TER257.PIC', 'SP257.PIC'].forEach((file) => {
-    const canvas = new canvas_1.Canvas(320, 200), image = new PicImage_1.default();
-    image.open(`./${file}`, () => {
-        image.draw(canvas.getContext('2d'));
-        Object.entries(extractData.files[file]).forEach(([path, definitions]) => {
-            definitions.forEach((definition) => {
-                definition.contents.forEach((content) => {
-                    const object = {
-                        ...extractData.defaults,
-                        ...definition,
-                        ...content,
-                    }, filename = `./assets/${path + object.name}.png`, dirname = filename.replace(/\/[^\/]+$/, '/'), contentCanvas = new canvas_1.Canvas(object.width, object.height), context = contentCanvas.getContext('2d');
-                    context.clearRect(0, 0, object.width, object.height);
-                    context.drawImage(canvas, object.x, object.y, object.width, object.height, 0, 0, object.width, object.height);
-                    for (let x = 0; x < canvas.width; x++) {
-                        for (let y = 0; y < canvas.height; y++) {
-                            let imageData = context.getImageData(x, y, 1, 1).data;
-                            if (imageData[0] == object.clear.r &&
-                                imageData[1] == object.clear.g &&
-                                imageData[2] == object.clear.b) {
-                                context.clearRect(x, y, 1, 1);
-                            }
-                        }
-                    }
-                    try {
-                        (0, fs_1.accessSync)('./assets/');
-                    }
-                    catch (e) {
-                        (0, fs_1.mkdirSync)('./assets/');
-                    }
-                    try {
-                        (0, fs_1.accessSync)(dirname);
-                    }
-                    catch (e) {
-                        (0, fs_1.mkdirSync)(dirname);
-                    }
-                    const buffer = Buffer.from(contentCanvas
-                        .toDataURL('image/png')
-                        .replace(/^data:image\/png;base64,/, ''), 'base64');
-                    console.log(`Writing ${filename}...`);
-                    (0, fs_1.writeFileSync)(filename, buffer);
-                });
-            });
-        });
+    const content = fs.readFileSync(file, {
+        encoding: 'binary',
+    });
+    (0, extractSprites_1.extractSprites)(content, extractData.files[file], extractData.defaults, (width, height) => new canvas_1.Canvas(width, height)).forEach(({ name, uri }) => {
+        const dirname = name.replace(/\/[^\/]+$/, '/');
+        try {
+            (0, fs_1.accessSync)('./assets/');
+        }
+        catch (e) {
+            (0, fs_1.mkdirSync)('./assets/');
+        }
+        try {
+            (0, fs_1.accessSync)(dirname);
+        }
+        catch (e) {
+            (0, fs_1.mkdirSync)(dirname);
+        }
+        const buffer = Buffer.from(uri.replace(/^data:image\/png;base64,/, ''), 'base64');
+        console.log(`Writing ${name}...`);
+        (0, fs_1.writeFileSync)(name, buffer);
     });
 });
 //# sourceMappingURL=index.js.map
