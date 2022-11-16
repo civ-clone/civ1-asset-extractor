@@ -15,5 +15,6 @@ export declare class PicImage extends BinFile {
     destinationX?: number,
     destinationY?: number
   ): void;
+  getPixel(x: number, y: number): number;
 }
 export default PicImage;

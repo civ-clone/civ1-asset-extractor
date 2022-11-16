@@ -136,6 +136,12 @@ class PicImage extends BinFile_1.default {
         }
         ctx.putImageData(canvasData, destinationX, destinationY);
     }
+    getPixel(x, y) {
+        if (!this.imageData) {
+            return 0;
+        }
+        return this.imageData[x + this.imageWidth * y];
+    }
 }
 exports.PicImage = PicImage;
 exports.default = PicImage;

@@ -7,7 +7,7 @@ const extractSprites = (content, extractData, defaults, canvasProvider, logger =
     image.fromString(content, () => {
         image.draw(canvas.getContext('2d', {
             // @ts-ignore
-            willReadFrequently: true
+            willReadFrequently: true,
         }));
         Object.entries(extractData).forEach(([path, definitionParents]) => definitionParents.forEach((definition) => definition.contents.forEach((content) => {
             const object = {
@@ -16,7 +16,7 @@ const extractSprites = (content, extractData, defaults, canvasProvider, logger =
                 ...content,
             }, filename = `./assets/${path + object.name}.png`, contentCanvas = canvasProvider(object.width, object.height), context = contentCanvas.getContext('2d', {
                 // @ts-ignore
-                willReadFrequently: true
+                willReadFrequently: true,
             });
             context.clearRect(0, 0, object.width, object.height);
             context.drawImage(canvas, object.x, object.y, object.width, object.height, 0, 0, object.width, object.height);

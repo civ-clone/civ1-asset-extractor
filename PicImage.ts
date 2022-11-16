@@ -175,6 +175,14 @@ export class PicImage extends BinFile {
 
     ctx.putImageData(canvasData, destinationX, destinationY);
   }
+
+  getPixel(x: number, y: number): number {
+    if (!this.imageData) {
+      return 0;
+    }
+
+    return this.imageData[x + this.imageWidth * y];
+  }
 }
 
 export default PicImage;
