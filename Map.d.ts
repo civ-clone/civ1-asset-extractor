@@ -1,5 +1,5 @@
 import PicImage from './PicImage';
-declare type Options = {
+type Options = {
   mapSeed: number;
 };
 export declare class Map extends PicImage {

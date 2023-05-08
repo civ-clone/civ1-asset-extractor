@@ -1,24 +1,24 @@
-import { Canvas, CanvasRenderingContext2D } from 'canvas';
+import { Canvas } from 'canvas';
 import PicImage from './PicImage';
 
-type DefinitionData = {
+export type DefinitionData = {
   height?: number;
   width?: number;
   x?: number;
   y?: number;
 };
 
-type DefinitionChild = DefinitionData & { name: string };
+export type DefinitionChild = DefinitionData & { name: string };
 
-type DefinitionParent = DefinitionData & {
+export type DefinitionParent = DefinitionData & {
   contents: DefinitionChild[];
 };
 
-type Definition = {
+export type Definition = {
   [filename: string]: DefinitionParent[];
 };
 
-type DefaultData = {
+export type DefaultData = {
   height: number;
   width: number;
   clear: {
@@ -35,7 +35,7 @@ export type ExtractData = {
   };
 };
 
-type ImageMap = {
+export type ImageMap = {
   name: string;
   uri: string;
 };
@@ -76,7 +76,7 @@ export const extractSprites = (
 
           context.clearRect(0, 0, object.width, object.height);
           context.drawImage(
-            canvas,
+            canvas as HTMLCanvasElement,
             object.x,
             object.y,
             object.width,

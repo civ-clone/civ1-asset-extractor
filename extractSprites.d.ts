@@ -1,20 +1,20 @@
 import { Canvas } from 'canvas';
-declare type DefinitionData = {
+export type DefinitionData = {
   height?: number;
   width?: number;
   x?: number;
   y?: number;
 };
-declare type DefinitionChild = DefinitionData & {
+export type DefinitionChild = DefinitionData & {
   name: string;
 };
-declare type DefinitionParent = DefinitionData & {
+export type DefinitionParent = DefinitionData & {
   contents: DefinitionChild[];
 };
-declare type Definition = {
+export type Definition = {
   [filename: string]: DefinitionParent[];
 };
-declare type DefaultData = {
+export type DefaultData = {
   height: number;
   width: number;
   clear: {
@@ -23,13 +23,13 @@ declare type DefaultData = {
     b: number;
   };
 };
-export declare type ExtractData = {
+export type ExtractData = {
   defaults: DefaultData;
   files: {
     [filename: string]: Definition;
   };
 };
-declare type ImageMap = {
+export type ImageMap = {
   name: string;
   uri: string;
 };
