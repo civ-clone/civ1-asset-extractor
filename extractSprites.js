@@ -20,16 +20,20 @@ const extractSprites = (content, extractData, defaults, canvasProvider, logger =
             });
             context.clearRect(0, 0, object.width, object.height);
             context.drawImage(canvas, object.x, object.y, object.width, object.height, 0, 0, object.width, object.height);
-            for (let x = 0; x < canvas.width; x++) {
-                for (let y = 0; y < canvas.height; y++) {
-                    let imageData = context.getImageData(x, y, 1, 1).data;
-                    if (imageData[0] == object.clear.r &&
-                        imageData[1] == object.clear.g &&
-                        imageData[2] == object.clear.b) {
-                        context.clearRect(x, y, 1, 1);
-                    }
+            // Knock out the transparent colour in a single readback rather than
+            // one `getImageData` per pixel.
+            const imageData = context.getImageData(0, 0, object.width, object.height), { data } = imageData;
+            for (let offset = 0; offset < data.length; offset += 4) {
+                if (data[offset] == object.clear.r &&
+                    data[offset + 1] == object.clear.g &&
+                    data[offset + 2] == object.clear.b) {
+                    data[offset] = 0;
+                    data[offset + 1] = 0;
+                    data[offset + 2] = 0;
+                    data[offset + 3] = 0;
                 }
             }
+            context.putImageData(imageData, 0, 0);
             logger(`Processing ${filename}...`);
             result.push({
                 name: filename,
