@@ -769,6 +769,8 @@
         },
         {
           "y": 177,
+          "height": 15,
+          "width": 15,
           "contents": [
             {
               "name": "cruiser",
