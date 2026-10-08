@@ -1,4 +1,10 @@
 import BinFile from './BinFile';
+export declare type RGBA = {
+  r: number;
+  g: number;
+  b: number;
+  a: number;
+};
 export declare class PicImage extends BinFile {
   private palette;
   private palette16;
@@ -15,6 +21,7 @@ export declare class PicImage extends BinFile {
     destinationX?: number,
     destinationY?: number
   ): void;
+  getColour(index: number): RGBA;
   getPixel(x: number, y: number): number;
 }
 export default PicImage;

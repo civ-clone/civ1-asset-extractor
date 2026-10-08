@@ -17,6 +17,11 @@ Run:
 
 This will create an `assets/` directory which will have the structure needed to work with the renderer.
 
+A sprite in `extract-data.json` can have an `overlay`: rows of palette indices (two hex digits per pixel, `..` to keep
+the original pixel) written over it once it's cut out. This makes new sprites from the originals, such as the women
+specialists (`city/people_*_f`), while the repo holds only the changed pixels and the colours come from the player's own
+files.
+
 This can also extract map data in the format used by
 [`simple-world-loader`'s `simpleRLELoader`](https://github.com/civ-clone/simple-world-generator/blob/master/tests/lib/simpleRLELoader.ts)
 via:

@@ -8,7 +8,14 @@ export type DefinitionData = {
   y?: number;
 };
 
-export type DefinitionChild = DefinitionData & { name: string };
+// Rows of palette indices, written over the sprite once it's cut out, as two hex digits per pixel separated by spaces.
+//  `..` keeps the original pixel. Used to make new sprites from the originals while shipping only the changed pixels.
+export type Overlay = string[];
+
+export type DefinitionChild = DefinitionData & {
+  name: string;
+  overlay?: Overlay;
+};
 
 export type DefinitionParent = DefinitionData & {
   contents: DefinitionChild[];
@@ -87,8 +94,8 @@ export const extractSprites = (
             object.height
           );
 
-          // Knock out the transparent colour in a single readback rather than
-          // one `getImageData` per pixel.
+          // Apply any overlay and knock out the transparent colour in a single
+          // readback rather than one `getImageData` per pixel.
           const imageData = context.getImageData(
               0,
               0,
@@ -96,6 +103,25 @@ export const extractSprites = (
               object.height
             ),
             { data } = imageData;
+
+          ((object.overlay ?? []) as Overlay).forEach((row, y) =>
+            row
+              .trim()
+              .split(/\s+/)
+              .forEach((pixel, x) => {
+                if (pixel === '..' || x >= object.width || y >= object.height) {
+                  return;
+                }
+
+                const { r, g, b, a } = image.getColour(parseInt(pixel, 16)),
+                  offset = (y * object.width + x) * 4;
+
+                data[offset] = r;
+                data[offset + 1] = g;
+                data[offset + 2] = b;
+                data[offset + 3] = a;
+              })
+          );
 
           for (let offset = 0; offset < data.length; offset += 4) {
             if (
