@@ -5,8 +5,10 @@ export type DefinitionData = {
   x?: number;
   y?: number;
 };
+export type Overlay = string[];
 export type DefinitionChild = DefinitionData & {
   name: string;
+  overlay?: Overlay;
 };
 export type DefinitionParent = DefinitionData & {
   contents: DefinitionChild[];

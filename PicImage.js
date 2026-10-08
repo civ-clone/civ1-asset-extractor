@@ -136,6 +136,9 @@ class PicImage extends BinFile_1.default {
         }
         ctx.putImageData(canvasData, destinationX, destinationY);
     }
+    getColour(index) {
+        return this.palette[index];
+    }
     getPixel(x, y) {
         if (!this.imageData) {
             return 0;

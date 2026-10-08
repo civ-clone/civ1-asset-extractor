@@ -3,7 +3,7 @@ import LZW from './LZW';
 import lowerNibble from './lib/lowerNibble';
 import upperNibble from './lib/upperNibble';
 
-declare type RGBA = {
+export declare type RGBA = {
   r: number;
   g: number;
   b: number;
@@ -174,6 +174,10 @@ export class PicImage extends BinFile {
     }
 
     ctx.putImageData(canvasData, destinationX, destinationY);
+  }
+
+  getColour(index: number): RGBA {
+    return this.palette[index];
   }
 
   getPixel(x: number, y: number): number {

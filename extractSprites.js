@@ -10,6 +10,7 @@ const extractSprites = (content, extractData, defaults, canvasProvider, logger =
             willReadFrequently: true,
         }));
         Object.entries(extractData).forEach(([path, definitionParents]) => definitionParents.forEach((definition) => definition.contents.forEach((content) => {
+            var _a;
             const object = {
                 ...defaults,
                 ...definition,
@@ -20,9 +21,22 @@ const extractSprites = (content, extractData, defaults, canvasProvider, logger =
             });
             context.clearRect(0, 0, object.width, object.height);
             context.drawImage(canvas, object.x, object.y, object.width, object.height, 0, 0, object.width, object.height);
-            // Knock out the transparent colour in a single readback rather than
-            // one `getImageData` per pixel.
+            // Apply any overlay and knock out the transparent colour in a single
+            // readback rather than one `getImageData` per pixel.
             const imageData = context.getImageData(0, 0, object.width, object.height), { data } = imageData;
+            ((_a = object.overlay) !== null && _a !== void 0 ? _a : []).forEach((row, y) => row
+                .trim()
+                .split(/\s+/)
+                .forEach((pixel, x) => {
+                if (pixel === '..' || x >= object.width || y >= object.height) {
+                    return;
+                }
+                const { r, g, b, a } = image.getColour(parseInt(pixel, 16)), offset = (y * object.width + x) * 4;
+                data[offset] = r;
+                data[offset + 1] = g;
+                data[offset + 2] = b;
+                data[offset + 3] = a;
+            }));
             for (let offset = 0; offset < data.length; offset += 4) {
                 if (data[offset] == object.clear.r &&
                     data[offset + 1] == object.clear.g &&
