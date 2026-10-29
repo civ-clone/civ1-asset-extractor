@@ -33,12 +33,14 @@ class PicImage extends BinFile_1.default {
         this.byteMode = 0xb;
     }
     decode(callback) {
-        let id = this.getString(2), length = this.getShort();
+        // Chunk lengths are unsigned: a sheet that compresses poorly (a custom tileset with denser art) has an image chunk
+        //  over 32767 bytes, which read as a negative length and decoded to nothing.
+        let id = this.getString(2), length = this.getUShort();
         if (id == 'M0') {
             //Second part could be the VGA Palette information
             this.getPaletteData();
             id = this.getString(2);
-            length = this.getShort();
+            length = this.getUShort();
         }
         else {
             //If no palette information, let's create a random one
