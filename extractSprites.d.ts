@@ -1,6 +1,7 @@
 import { Canvas } from 'canvas';
 export type DefinitionData = {
   height?: number;
+  opaque?: boolean;
   width?: number;
   x?: number;
   y?: number;
@@ -27,6 +28,7 @@ export type DefaultData = {
 };
 export type ExtractData = {
   defaults: DefaultData;
+  optional?: string[];
   files: {
     [filename: string]: Definition;
   };

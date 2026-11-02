@@ -5,7 +5,18 @@ const extractSprites_1 = require("./extractSprites");
 const canvas_1 = require("canvas");
 const fs = require("fs");
 const extractData = JSON.parse((0, fs_1.readFileSync)('./extract-data.json').toString());
-['TER257.PIC', 'SP257.PIC'].forEach((file) => {
+Object.keys(extractData.files).forEach((file) => {
+    var _a;
+    try {
+        (0, fs_1.accessSync)(file);
+    }
+    catch (e) {
+        if (((_a = extractData.optional) !== null && _a !== void 0 ? _a : []).includes(file)) {
+            console.log(`Skipping ${file}, which is optional and not here.`);
+            return;
+        }
+        throw e;
+    }
     const content = fs.readFileSync(file, {
         encoding: 'binary',
     });

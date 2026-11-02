@@ -10,6 +10,7 @@ Copy the required files to this folder from the original Civilization game files
 
 - `TER257.PIC`
 - `SP257.PIC`
+- `SP299.PIC` (optional: the city screen's improvement and Wonder icons, `city-improvements/*` and `wonders/*`)
 
 Run:
 

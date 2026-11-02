@@ -3,6 +3,9 @@ import PicImage from './PicImage';
 
 export type DefinitionData = {
   height?: number;
+  // Copied as a solid block, as the original draws it: palette index 0 stays black rather than transparent, and the
+  //  `clear` colour isn't knocked out. For the city screen's icons, whose outlines are black.
+  opaque?: boolean;
   width?: number;
   x?: number;
   y?: number;
@@ -37,6 +40,8 @@ export type DefaultData = {
 
 export type ExtractData = {
   defaults: DefaultData;
+  // Files an import may leave out: the sprites cut from them are drawn where they're there, and skipped where not.
+  optional?: string[];
   files: {
     [filename: string]: Definition;
   };
@@ -124,6 +129,13 @@ export const extractSprites = (
           );
 
           for (let offset = 0; offset < data.length; offset += 4) {
+            if (object.opaque) {
+              // Index 0 was drawn transparent: its colour is black.
+              data[offset + 3] = 255;
+
+              continue;
+            }
+
             if (
               data[offset] == object.clear.r &&
               data[offset + 1] == object.clear.g &&
