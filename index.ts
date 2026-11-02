@@ -7,7 +7,19 @@ const extractData: ExtractData = JSON.parse(
   readFileSync('./extract-data.json').toString()
 );
 
-['TER257.PIC', 'SP257.PIC'].forEach((file: string) => {
+Object.keys(extractData.files).forEach((file: string) => {
+  try {
+    accessSync(file);
+  } catch (e) {
+    if ((extractData.optional ?? []).includes(file)) {
+      console.log(`Skipping ${file}, which is optional and not here.`);
+
+      return;
+    }
+
+    throw e;
+  }
+
   const content = fs.readFileSync(file, {
     encoding: 'binary',
   });

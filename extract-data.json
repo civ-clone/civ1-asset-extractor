@@ -8,6 +8,9 @@
       "b": 170
     }
   },
+  "optional": [
+    "SP299.PIC"
+  ],
   "files": {
     "SP257.PIC": {
       "cursor/go": [
@@ -1641,6 +1644,236 @@
             {
               "name": "_mouth_w",
               "x": 176
+            }
+          ]
+        }
+      ]
+    },
+    "SP299.PIC": {
+      "city-improvements/": [
+        {
+          "width": 18,
+          "height": 10,
+          "opaque": true,
+          "contents": [
+            {
+              "name": "palace",
+              "x": 161,
+              "y": 50
+            },
+            {
+              "name": "barracks",
+              "x": 161,
+              "y": 60
+            },
+            {
+              "name": "granary",
+              "x": 161,
+              "y": 70
+            },
+            {
+              "name": "temple",
+              "x": 161,
+              "y": 80
+            },
+            {
+              "name": "marketplace",
+              "x": 161,
+              "y": 90
+            },
+            {
+              "name": "library",
+              "x": 180,
+              "y": 50
+            },
+            {
+              "name": "courthouse",
+              "x": 180,
+              "y": 60
+            },
+            {
+              "name": "citywalls",
+              "x": 180,
+              "y": 70
+            },
+            {
+              "name": "aqueduct",
+              "x": 180,
+              "y": 80
+            },
+            {
+              "name": "bank",
+              "x": 180,
+              "y": 90
+            },
+            {
+              "name": "cathedral",
+              "x": 199,
+              "y": 50
+            },
+            {
+              "name": "university",
+              "x": 199,
+              "y": 60
+            },
+            {
+              "name": "masstransit",
+              "x": 199,
+              "y": 70
+            },
+            {
+              "name": "colosseum",
+              "x": 199,
+              "y": 80
+            },
+            {
+              "name": "factory",
+              "x": 199,
+              "y": 90
+            },
+            {
+              "name": "manufacturingplant",
+              "x": 218,
+              "y": 50
+            },
+            {
+              "name": "sdidefence",
+              "x": 218,
+              "y": 60
+            },
+            {
+              "name": "recyclingcenter",
+              "x": 218,
+              "y": 70
+            },
+            {
+              "name": "powerplant",
+              "x": 218,
+              "y": 80
+            },
+            {
+              "name": "hydroplant",
+              "x": 218,
+              "y": 90
+            },
+            {
+              "name": "nuclearplant",
+              "x": 237,
+              "y": 50
+            }
+          ]
+        }
+      ],
+      "wonders/": [
+        {
+          "width": 18,
+          "height": 10,
+          "opaque": true,
+          "contents": [
+            {
+              "name": "pyramids",
+              "x": 237,
+              "y": 60
+            },
+            {
+              "name": "hanginggardens",
+              "x": 237,
+              "y": 70
+            },
+            {
+              "name": "colossus",
+              "x": 237,
+              "y": 80
+            },
+            {
+              "name": "lighthouse",
+              "x": 237,
+              "y": 90
+            },
+            {
+              "name": "greatlibrary",
+              "x": 256,
+              "y": 50
+            },
+            {
+              "name": "oracle",
+              "x": 256,
+              "y": 60
+            },
+            {
+              "name": "greatwall",
+              "x": 256,
+              "y": 70
+            },
+            {
+              "name": "magellansexpedition",
+              "x": 256,
+              "y": 80
+            },
+            {
+              "name": "michelangeloschapel",
+              "x": 256,
+              "y": 90
+            },
+            {
+              "name": "copernicusobservatory",
+              "x": 275,
+              "y": 50
+            },
+            {
+              "name": "shakespearestheatre",
+              "x": 275,
+              "y": 60
+            },
+            {
+              "name": "isaacnewtonscollege",
+              "x": 275,
+              "y": 70
+            },
+            {
+              "name": "jsbachscathedral",
+              "x": 275,
+              "y": 80
+            },
+            {
+              "name": "darwinsvoyage",
+              "x": 275,
+              "y": 90
+            },
+            {
+              "name": "hooverdam",
+              "x": 294,
+              "y": 50
+            },
+            {
+              "name": "womenssuffrage",
+              "x": 294,
+              "y": 60
+            },
+            {
+              "name": "manhattanproject",
+              "x": 294,
+              "y": 70
+            },
+            {
+              "name": "unitednations",
+              "x": 294,
+              "y": 80
+            },
+            {
+              "name": "apolloprogram",
+              "x": 294,
+              "y": 90
+            },
+            {
+              "name": "setiprogram",
+              "x": 161,
+              "y": 100
+            },
+            {
+              "name": "cureforcancer",
+              "x": 180,
+              "y": 100
             }
           ]
         }

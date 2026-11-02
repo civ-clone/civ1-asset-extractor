@@ -42,6 +42,14 @@ export class PicImage extends BinFile {
     let id = this.getString(2),
       length = this.getUShort();
 
+    if (id == 'E0') {
+      // An EGA colour map ahead of the VGA palette, as SP299.PIC and most of the other sheets start: the VGA palette
+      //  follows, so skip it.
+      this.getString(length);
+      id = this.getString(2);
+      length = this.getUShort();
+    }
+
     if (id == 'M0') {
       //Second part could be the VGA Palette information
       this.getPaletteData();

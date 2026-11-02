@@ -38,6 +38,11 @@ const extractSprites = (content, extractData, defaults, canvasProvider, logger =
                 data[offset + 3] = a;
             }));
             for (let offset = 0; offset < data.length; offset += 4) {
+                if (object.opaque) {
+                    // Index 0 was drawn transparent: its colour is black.
+                    data[offset + 3] = 255;
+                    continue;
+                }
                 if (data[offset] == object.clear.r &&
                     data[offset + 1] == object.clear.g &&
                     data[offset + 2] == object.clear.b) {
