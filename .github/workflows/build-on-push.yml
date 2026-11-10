@@ -6,9 +6,34 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: 18
-      - run: yarn install
-      - run: yarn prettier:check
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # No lock file, so this tests what a consumer resolves. The settings match
+      # web-renderer's pnpm-workspace.yaml: several @civ-clone packages depend on
+      # each other as `github:` URLs, this project's own releases are often only
+      # minutes old, and nothing here needs a dependency's build script.
+      - run: >-
+          pnpm install --no-frozen-lockfile
+          --config.block-exotic-subdeps=false
+          --config.minimum-release-age=0
+          --config.strict-dep-builds=false
+      - run: npm run --if-present prettier:check
+      # The tests load the committed `.js`, so compile to prove the source
+      # type-checks, and fail if the committed output is stale. `--force`
+      # because a fresh checkout's timestamps can make `tsc --build` treat the
+      # committed output as up to date and skip the compile entirely.
+      - run: npm run --if-present ts:compile -- --force
+      - run: npm run --if-present prettier:format
+      # Stale *or never committed* output fails: `git diff` alone misses a new
+      # module whose `.js` was never added, which the published package would
+      # then omit. Only the compiled extensions, so the lock file the install
+      # writes cannot fail it; `node_modules` is ignored, so it stays out.
+      - run: |
+          git status --short --untracked-files=all -- '*.js' '*.d.ts' '*.js.map'
+          test -z "$(git status --porcelain --untracked-files=all -- '*.js' '*.d.ts' '*.js.map')"
+      - run: npm run --if-present test
