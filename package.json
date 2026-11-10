@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run ts:compile && npm run prettier:format",
-    "prettier:check": "prettier --config .prettierrc '**/*.ts'",
+    "prettier:check": "prettier --config .prettierrc --check '**/*.ts'",
     "prettier:format": "prettier --config .prettierrc '**/*.ts' --write",
     "ts:compile": "tsc --build tsconfig.json"
   },
